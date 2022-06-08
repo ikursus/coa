@@ -24,20 +24,26 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>NAMA</th>
+                                    <th>KOD</th>
+                                    <th>KETERANGAN</th>
+                                    <th>AMAUN</th>
                                     <th>TINDAKAN</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
+                                @foreach($senaraiCoa as $item)
                                 <tr>
-                                    <td>1</td>
-                                    <td>SAMPLE</td>
+                                    <td><?php echo $item['id']; ?></td>
+                                    <td>{{ $item['kod'] }}</td>
+                                    <td>{{ $item['keterangan'] }}</td>
+                                    <td>{{ $item['amaun'] }}</td>
                                     <td>
-                                        <a href="/coa/1/edit">Edit</a>
+                                        <a href="/coa/{{ $item['id'] }}/edit" class="btn btn-info">Edit</a>
                                     </td>
                                 </tr>
+                                @endforeach
 
                             </tbody>
 
