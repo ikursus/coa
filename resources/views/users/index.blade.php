@@ -15,7 +15,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        Senarai COA
+                        Senarai Users
                     </div>
                     <div class="card-body">
 
@@ -24,23 +24,23 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>KOD</th>
-                                    <th>KETERANGAN</th>
-                                    <th>AMAUN</th>
+                                    <th>NAMA</th>
+                                    <th>MYKAD</th>
+                                    <th>EMAIL</th>
                                     <th>TINDAKAN</th>
                                 </tr>
                             </thead>
 
                             <tbody>
 
-                                @foreach($senaraiCoa as $item)
+                                @foreach($senaraiUsers as $item)
                                 <tr>
                                     <td><?php echo $item['id']; ?></td>
-                                    <td>{{ $item['kod'] }}</td>
-                                    <td>{{ $item['keterangan'] }}</td>
-                                    <td>{{ $item['amaun'] }}</td>
+                                    <td>{{ $item['nama'] }}</td>
+                                    <td>{{ $item['mykad'] }}</td>
+                                    <td>{{ $item['email'] }}</td>
                                     <td>
-                                        <a href="{{ route('coa.edit', ['id' => $item['id']]) }}" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('users.edit', ['id' => $item['id']]) }}" class="btn btn-info">Edit</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -51,7 +51,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="{{ route('coa.create') }}" class="btn btn-primary">Tambah Baru</a>
+                        <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah Baru</a>
                     </div>
                 </div>
 
