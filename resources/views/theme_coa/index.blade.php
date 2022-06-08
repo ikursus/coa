@@ -40,7 +40,7 @@
                                     <td>{{ $item['keterangan'] }}</td>
                                     <td>{{ $item['amaun'] }}</td>
                                     <td>
-                                        <a href="/coa/{{ $item['id'] }}/edit" class="btn btn-info">Edit</a>
+                                        <a href="coa/{{ $item['id'] }}/edit" class="btn btn-info">Edit</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -51,7 +51,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="/coa/tambah" class="btn btn-primary">Tambah Baru</a>
+                        <a href="{{ route('coa.create') }}" class="btn btn-primary">Tambah Baru</a>
                     </div>
                 </div>
 

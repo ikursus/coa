@@ -20,14 +20,14 @@ Route::get('/coa', function () {
 
     return view('theme_coa.index', compact('senaraiCoa'));
 
-
 });
 
 
-Route::view('/coa/tambah', 'theme_coa.template-tambah');
-Route::post('/coa/tambah', function () {
+Route::view('/coa/add', 'theme_coa.template-tambah')->name('coa.create');
+
+Route::post('/coa/add', function () {
     return 'Berjaya dihantar!';
-});
+})->name('coa.post');
 
 Route::get('/coa/{id}/edit', function ($id) {
     $pageTitle = 'Kemaskini';

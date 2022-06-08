@@ -13,7 +13,7 @@
 
             <div class="col">
 
-                <form method="POST">
+                <form method="POST" action="{{ route('coa.post') }}">
                 @csrf
 
                 <div class="card">
