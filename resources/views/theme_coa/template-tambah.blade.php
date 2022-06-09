@@ -13,7 +13,7 @@
 
             <div class="col">
 
-                <form method="POST" action="{{ route('coa.post') }}">
+                <form method="POST" action="{{ route('coa.store') }}">
                 @csrf
 
                 <div class="card">
@@ -41,7 +41,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="/coa" class="btn btn-light">Kembali</a>
+                        <a href="{{ route('coa.index') }}" class="btn btn-light">Kembali</a>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </div>

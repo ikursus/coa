@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function(){
     return view('welcome');
     // /resources/views/
-});
+})->name('home');
 
 // Route::prefix('coa')->group(function () {
 
@@ -47,7 +47,7 @@ Route::get('/', function(){
 
 
 Route::group([
-    'prefix' => 'coa',
+    'prefix' => 'maklumat',
     'as' => 'coa.', // name
 ], function () {
 
@@ -72,7 +72,6 @@ Route::group([
     Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
 
 });
-
 
 Route::get('login', function () {
     return 'Ini halaman login';

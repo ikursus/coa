@@ -43,7 +43,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="/coa" class="btn btn-light">Kembali</a>
+                        <a href="{{ route('coa.index') }}" class="btn btn-light">Kembali</a>
                         <button type="submit" class="btn btn-primary">Kemaskini</button>
                     </div>
                 </div>
