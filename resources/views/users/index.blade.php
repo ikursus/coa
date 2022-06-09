@@ -32,7 +32,7 @@
                                 <td>{{ $item->mykad }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
-                                    <a href="{{ route('users.edit', ['id' => $item->id]) }}" class="btn btn-info">Edit</a>
+                                    <a href="{{ route('users.edit', [$item->id]) }}" class="btn btn-info">Edit</a>
                                 </td>
                             </tr>
                             @endforeach

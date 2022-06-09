@@ -6,33 +6,41 @@
 
     <div class="col">
 
-        <form method="POST">
+        <form method="POST" action="{{ route('users.update', $user->id) }}">
         @csrf
         {{-- <input type="hidden" name="_method" value="PATCH"> komen --}}
         @method('PATCH')
 
         <div class="card">
             <div class="card-header">
-                {{ $pageTitle ?? "" }}  Rekod COA ID: {{ $id ?? "" }}
+                {{ $pageTitle ?? "" }}  Rekod {{ $user->name }}
             </div>
             <div class="card-body">
 
-                    <div class="form-group">
-                        <label>Kod Akaun</label>
-                        <input type="text" name="kod_akaun" class="form-control" required>
-                    </div>
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" name="name" class="form-control" value="{{ $user->name }}" required>
+                </div>
 
-                    <div class="form-group">
-                        <label>Keterangan Akaun</label>
-                        <input type="text" name="keterangan_akaun" class="form-control" required>
-                    </div>
+                <div class="form-group">
+                    <label>MyKAD</label>
+                    <input type="text" name="mykad" class="form-control" value="{{ $user->mykad }}" required>
+                </div>
 
-                    <div class="form-group">
-                        <label>Amaun</label>
-                        <input type="number" name="amaun" min="0" step="0.01" class="form-control" required>
-                    </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" value="{{ $user->email }}" required>
+                </div>
 
-                </form>
+                {{-- <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Password (Confirm)</label>
+                    <input type="password" name="password_confirmation" class="form-control">
+                </div> --}}
 
             </div>
             <div class="card-footer">

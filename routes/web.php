@@ -71,6 +71,8 @@ Route::group([
     Route::patch('/{id}/edit', [UserController::class, 'update'])->name('update');
     Route::delete('/{id}', [UserController::class, 'destroy'])->name('destroy');
 
+    // Route::resource('users', UserController::class);
+
 });
 
 Route::get('login', function () {

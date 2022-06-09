@@ -113,7 +113,10 @@ class UserController extends Controller
     {
         $pageTitle = 'Kemaskini';
 
-        return view('users.edit', compact('id', 'pageTitle'));
+        //$user = User::where('id', $id)->first();
+        $user = User::findOrFail($id);
+
+        return view('users.edit', compact('user', 'pageTitle'));
     }
 
     /**
@@ -125,7 +128,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name' => ['required', 'min:3'],
+            'email' => ['required', 'email:filter'],
+            'mykad' => ['required']
+        ]);
+
+        $data = $request->all();
+
+        $user = User::findOrFail($id);
+        $user->update($data);
+
+        return redirect()->back()->with('mesej_success', 'Rekod berjaya disimpan');
+
     }
 
     /**

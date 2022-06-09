@@ -81,6 +81,10 @@ main > .container {
 <main class="flex-shrink-0">
     <div class="container">
 
+        @if (session('mesej_success'))
+        <div class="alert alert-success">{{ session('mesej_success') }}</div>
+        @endif
+
         @yield('content_utama')
 
 
