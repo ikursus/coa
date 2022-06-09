@@ -83,6 +83,9 @@ main > .container {
 
         @yield('content_utama')
 
+
+        @yield('content_bawah')
+
     </div>
 </main>
 
