@@ -27,12 +27,12 @@
 
                             @foreach($senaraiUsers as $item)
                             <tr>
-                                <td><?php echo $item['id']; ?></td>
-                                <td>{{ $item['nama'] }}</td>
-                                <td>{{ $item['mykad'] }}</td>
-                                <td>{{ $item['email'] }}</td>
+                                <td><?php echo $item->id; ?></td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ $item->mykad }}</td>
+                                <td>{{ $item->email }}</td>
                                 <td>
-                                    <a href="{{ route('users.edit', ['id' => $item['id']]) }}" class="btn btn-info">Edit</a>
+                                    <a href="{{ route('users.edit', ['id' => $item->id]) }}" class="btn btn-info">Edit</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -40,6 +40,8 @@
                         </tbody>
 
                     </table>
+
+                    {{ $senaraiUsers->links() }}
 
                 </div>
                 <div class="card-footer">

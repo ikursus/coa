@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,11 +14,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        $senaraiUsers = [
-            ['id' => 1, 'nama' => 'Ali', 'mykad' => '808080808080', 'email' => 'ali@gmail.com'],
-            ['id' => 2, 'nama' => 'Ahmad', 'mykad' => '808080808282', 'email' => 'ahmad@gmail.com'],
-            ['id' => 3, 'nama' => 'Siti', 'mykad' => '808080808980', 'email' => 'siti@gmail.com'],
-        ];
+        // $senaraiUsers = [
+        //     ['id' => 1, 'nama' => 'Ali', 'mykad' => '808080808080', 'email' => 'ali@gmail.com'],
+        //     ['id' => 2, 'nama' => 'Ahmad', 'mykad' => '808080808282', 'email' => 'ahmad@gmail.com'],
+        //     ['id' => 3, 'nama' => 'Siti', 'mykad' => '808080808980', 'email' => 'siti@gmail.com'],
+        // ];
+
+        $senaraiUsers = User::paginate(15);
+
+        // Die and dump
+        //dd($senaraiUsers);
 
         return view('users.index', compact('senaraiUsers'));
     }
