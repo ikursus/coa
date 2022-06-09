@@ -12,13 +12,13 @@
 
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link{{ url()->current() == route('home') ? ' active' : null }}" aria-current="page" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                        <a class="nav-link{{ url()->current() == route('users.index') ? ' active' : null }}" href="{{ route('users.index') }}">Users</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('coa.index') }}">Maklumat</a>
+                        <a class="nav-link{{ url()->current() == route('coa.index') ? ' active' : null }}" href="{{ route('coa.index') }}">Maklumat</a>
                     </li>
                 </ul>
 
