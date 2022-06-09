@@ -128,7 +128,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $request->validate([
             'name' => ['required', 'min:3'],
             'email' => ['required', 'email:filter'],
@@ -152,6 +151,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('users.index')
+        ->with('mesej_success', 'Rekod ' .$user->name .' berjaya dihapuskan!');
     }
 }
