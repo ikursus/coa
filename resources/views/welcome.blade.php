@@ -2,11 +2,18 @@
 
 
 @section('footer_content')
-asdasdasdasdsa
+<div class="text-center mt-3">
+    Copyright &copy; {{ date('Y') }} {{ config('app.name') }}.
+</div>
 @endsection
 
 @section('content_utama')
-Halaman Welcome
+<div class="mt-5 text-center">
+    <h1>
+        Selamat Datang ke {{ config('app.name') }}
+    </h1>
+</div>
+
 @endsection
 
 @push('javascript_custom')
