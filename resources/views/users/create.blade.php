@@ -27,7 +27,7 @@
 
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="nama" class="form-control" value="{{ old('nama') }}" required>
+                                <input type="text" name="name" class="form-control" value="{{ old('nama') }}" required>
                             </div>
 
                             <div class="form-group">
@@ -38,6 +38,16 @@
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password (Confirm)</label>
+                                <input type="password" name="password_confirmation" class="form-control" required>
                             </div>
 
                         </form>
