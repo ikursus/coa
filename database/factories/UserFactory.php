@@ -23,7 +23,8 @@ class UserFactory extends Factory
             'mykad' => $this->faker->numberBetween(100000000000, 900000000000),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => Hash::make('PassWord!!'),//bcrypt('PassWord!!'), // password // Hash::make('PassWord!!')
+            //'password' => Hash::make('PassWord!!'),//bcrypt('PassWord!!'), // password // Hash::make('PassWord!!')
+            'password' => 'PassWord!!', // password tak perlu encrypt di sini kerana kita sudah buat mutators encrypt password
             'remember_token' => Str::random(10),
         ];
     }
