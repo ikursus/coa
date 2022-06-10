@@ -28,21 +28,33 @@
                             <div class="form-group">
                                 <label>Nama</label>
                                 <input type="text" name="name" class="form-control" value="{{ old('nama') }}" required>
+                                @error('name')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label>MyKAD</label>
                                 <input type="text" name="mykad" class="form-control" value="{{ old('mykad') }}" required>
+                                @error('mykad')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
+                                @error('email')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
                                 <input type="password" name="password" class="form-control" required>
+                                @error('password')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">

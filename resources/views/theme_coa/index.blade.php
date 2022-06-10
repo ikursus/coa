@@ -17,6 +17,8 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>USER ID</th>
+                                <th>USER NAME</th>
                                 <th>KOD</th>
                                 <th>KETERANGAN</th>
                                 <th>AMAUN</th>
@@ -28,12 +30,14 @@
 
                             @foreach($senaraiCoa as $item)
                             <tr>
-                                <td><?php echo $item['id']; ?></td>
-                                <td>{{ $item['kod'] }}</td>
-                                <td>{{ $item['keterangan'] }}</td>
-                                <td>{{ $item['amaun'] }}</td>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->user->id }}</td>
+                                <td>{{ $item->user->name }}</td>
+                                <td>{{ $item->kod }}</td>
+                                <td>{{ $item->keterangan }}</td>
+                                <td>{{ $item->amaun }}</td>
                                 <td>
-                                    <a href="{{ route('coa.edit', ['id' => $item['id']]) }}" class="btn btn-info">Edit</a>
+                                    <a href="{{ route('coa.edit', [$item->id]) }}" class="btn btn-info">Edit</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -41,6 +45,9 @@
                         </tbody>
 
                     </table>
+
+                    {{ $senaraiCoa->links() }}
+                    {{ $senaraiCoa->render() }}
 
                 </div>
                 <div class="card-footer">

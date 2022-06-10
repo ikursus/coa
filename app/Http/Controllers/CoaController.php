@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Maklumat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CoaController extends Controller
 {
@@ -13,14 +15,16 @@ class CoaController extends Controller
      */
     public function index()
     {
+        // Cara 1 Nak dapatkan Data Menerusi Query Builder
+        //$senaraiCoa = DB::table('maklumat')->orderBy('id', 'desc')->paginate(15);
+        // $senaraiCoa = DB::table('maklumat')
+        // ->join('users', 'maklumat.user_id', '=', 'users.id')
+        // ->select('maklumat.*', 'users.id as userId', 'users.name', 'users.email')
+        // ->orderBy('id', 'desc')
+        // ->paginate(15);
 
-        $senaraiCoa = [
-            ['id' => 1, 'kod' => '110011', 'keterangan' => 'Asset 1', 'amaun' => 80.00],
-            ['id' => 2, 'kod' => '110022', 'keterangan' => 'Asset 2', 'amaun' => 50.00],
-            ['id' => 3, 'kod' => '110033', 'keterangan' => 'Asset 3', 'amaun' => 110.00],
-            ['id' => 4, 'kod' => '110044', 'keterangan' => 'Asset 4', 'amaun' => 40.00],
-            ['id' => 5, 'kod' => '110055', 'keterangan' => 'Asset 5', 'amaun' => 150.00]
-        ];
+        // Cara 2 Relation menerusi Model
+        $senaraiCoa = Maklumat::with('user')->orderBy('id', 'desc')->paginate(15);
 
         return view('theme_coa.index', compact('senaraiCoa'));
 

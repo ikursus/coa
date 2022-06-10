@@ -22,8 +22,7 @@ class UserController extends Controller
         //     ['id' => 3, 'nama' => 'Siti', 'mykad' => '808080808980', 'email' => 'siti@gmail.com'],
         // ];
 
-        $senaraiUsers = User::query()
-        ->orderBy('id', 'desc')
+        $senaraiUsers = User::orderBy('id', 'desc')
         //->where('name', 'like', '%Bo%')
         //->select('id', 'name')
         ->paginate(15);
@@ -81,7 +80,7 @@ class UserController extends Controller
         // ]);
 
         // $data['password'] = bcrypt($request->input('password'));
-        //DB::table('users')->insert($data);
+        // DB::table('users')->insert($data);
         // dd($data);
         // DB::table('users')->insert($data);
 
@@ -152,6 +151,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+
+        if ($user->maklumat()->count() > 0)
+        {
+            return redirect()->back()->with('mesej_error', 'User ini ada rekod di table maklumat');
+        }
+
         $user->delete();
 
         return redirect()->route('users.index')

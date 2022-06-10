@@ -17,7 +17,9 @@ class MaklumatFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'kod' => $this->faker->randomNumber(6),
+            'keterangan' => $this->faker->sentence(),
+            'amaun' => $this->faker->randomFloat()
         ];
     }
 }
