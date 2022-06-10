@@ -56,6 +56,7 @@ Route::group([
     Route::get('/', [CoaController::class, 'index'])->name('index');
     Route::get('/add', [CoaController::class, 'create'])->name('create');
     Route::post('/add', [CoaController::class, 'store'])->name('store');
+    Route::get('/print', [CoaController::class, 'print'])->name('print');
     Route::get('/{id}/edit', [CoaController::class, 'edit'])->where('id', '[0-9]+')->name('edit');
     Route::patch('/{id}/edit', [CoaController::class, 'update'])->name('update');
 

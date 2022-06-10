@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Maklumat;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -104,14 +105,11 @@ class CoaController extends Controller
         return 'Berjaya dikemaskini!';
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function print()
     {
-        //
+        $senaraiCoa = Maklumat::with('user')->get();
+
+        $pdf = PDF::loadView('reports.maklumat', compact('senaraiCoa'));
+        return $pdf->download(now() .'.pdf');
     }
 }

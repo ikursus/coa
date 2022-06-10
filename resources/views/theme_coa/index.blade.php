@@ -12,6 +12,8 @@
                 </div>
                 <div class="card-body">
 
+                    <a href="{{ route('coa.print') }}" class="btn btn-success">Cetak</a>
+
                     <table class="table">
 
                         <thead>
