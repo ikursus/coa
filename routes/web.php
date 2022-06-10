@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function(){
     return view('welcome');
@@ -48,7 +49,8 @@ Route::get('/', function(){
 
 Route::group([
     'prefix' => 'maklumat',
-    'as' => 'coa.', // name
+    'as' => 'coa.', // name,
+    'middleware' => ['auth']
 ], function () {
 
     Route::get('/', [CoaController::class, 'index'])->name('index');
@@ -62,6 +64,7 @@ Route::group([
 Route::group([
     'prefix' => 'users',
     'as' => 'users.', // name
+    'middleware' => ['auth']
 ], function () {
 
     Route::get('/', [UserController::class, 'index'])->name('index');
@@ -75,6 +78,6 @@ Route::group([
 
 });
 
-Route::get('login', function () {
-    return 'Ini halaman login';
-})->name('login');
+Route::get('login', [LoginController::class, 'borangLogin'])->name('login');
+Route::post('login', [LoginController::class, 'authenticate'])->name('login.authenticate');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
