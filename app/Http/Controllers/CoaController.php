@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Maklumat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,7 +38,10 @@ class CoaController extends Controller
      */
     public function create()
     {
-        return view('theme_coa.template-tambah');
+        // Dapatkan data senarai users
+        $senaraiUsers = User::all();
+
+        return view('theme_coa.template-tambah', compact('senaraiUsers'));
     }
 
     /**
@@ -48,7 +52,18 @@ class CoaController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Berjaya dihantar!';
+        $request->validate([
+            'user_id' => ['required', 'integer'],
+            'kod' => ['required', 'integer'],
+            'keterangan' => ['required'],
+            'amaun' => ['required', 'numeric']
+        ]);
+
+        $data = $request->all();
+
+        Maklumat::create($data);
+
+        return redirect()->route('coa.index')->with('mesej_success', 'Rekod berjaya ditambah!');
     }
 
     /**
